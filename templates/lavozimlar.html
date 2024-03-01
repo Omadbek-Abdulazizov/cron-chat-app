@@ -1,0 +1,36 @@
+{% extends 'wrapper.html' %}
+{% block content %}
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Amallar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for l in lavozim %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ l.title }}</td>
+            <td style="display: flex; align-items: center; justify-content: space-evenly;">
+                <a href="/update_lavozim/{{ l.id }}"> <i class="fa fa-pencil-square fa-2x "></i> </a>
+                <a href="{% url 'delete_lavozim' pk=l.id %}"><i class="fa  fa-trash-o text-danger fa-2x "></i></a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a style="position: absolute; right: 400px;" class="btn btn-success" href="/add_lavozim">QO`SHISH <i
+        class="fa fa-plus"></i> </a>
+{% endblock content %}

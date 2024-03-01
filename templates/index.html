@@ -1,0 +1,60 @@
+{% extends 'wrapper.html' %}
+{% block content %}
+<style>
+.form-group{
+    width:800px;
+    display:block; 
+    justify-content:center; 
+    align-items:center;
+    margin:0 auto;
+    
+}
+</style>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group" >
+        <label for="exampleFormControlSelect1">Lavozimlar</label>
+        <select name="lavozim" class="form-control" id="exampleFormControlSelect1">
+            <option disabled selected >Lavozimni tanlang</option>
+            {% for lavozim in lavozimlar %}
+            <option value="{{lavozim.id}}">{{lavozim}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Hodimlar</label>
+        <select name="hodimlar" multiple class="form-control" id="exampleFormControlSelect2">
+            {% for hodim in hodimlar %}
+            <option value="{{hodim.id}}" >{{hodim}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Habar kiriting</label>
+        <textarea name="input_message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Shablonlar</label>
+        <select name="shablon" class="form-control" id="exampleFormControlSelect1">
+            <option  selected value='' >Shablon habarini tanlang</option>
+            {% for shablon in shablonlar %}
+            <option value="{{shablon.text}}">{{shablon.title}}</option>
+            {% endfor %}
+        </select>
+        <br/>
+    </div>
+    <div class="form-group">
+        <label for="">Vaqtni belgilang</label>
+        <input class="form-control" name="vaqt" type="datetime-local" name="" id="">
+    </div>
+    
+
+
+    <button
+        style="right: 555px; margin-top:20px; position: absolute; border: none; padding: 12px; background: rgb(6, 161, 222); color: white; border-radius: 8px;"
+        type="submit">Yuborish<i style="padding-left: 5px;" class="fa fa-paper-plane"></i>
+    </button>
+</form>
+
+{% endblock content %}

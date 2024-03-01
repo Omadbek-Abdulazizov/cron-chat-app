@@ -1,0 +1,43 @@
+{% extends 'wrapper.html' %}
+{% block content %}
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Ismi</th>
+            <th>Familiyasi</th>
+            <th>Lavozimi</th>
+            <th>Telegram ID</th>
+            <th> Amallar </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for h in hodim %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ h.f_name }}</td>
+            <td>{{ h.l_name }}</td>
+            <td>{{ h.lavozimi.title }}</td>
+            <td>{{ h.telegram_id }}</td>
+            <td style="display: flex; align-items: center; justify-content: space-evenly;">
+                <a href="/update_hodim/{{ h.id }}"> <i class="fa fa-pencil-square fa-2x "></i> </a>
+                <a href="{% url 'delete_hodim' pk=h.id %}"> <i class="fa  fa-trash-o text-danger fa-2x "></i> </a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a style="position: absolute; right: 400px;" class="btn btn-success" href="/add_hodim">QO`SHISH <i
+        class="fa fa-plus"></i>
+</a>
+{% endblock content %}
