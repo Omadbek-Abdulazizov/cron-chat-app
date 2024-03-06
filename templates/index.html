@@ -18,7 +18,7 @@
         <select name="lavozim" class="form-control" id="exampleFormControlSelect1">
             <option disabled selected >Lavozimni tanlang</option>
             {% for lavozim in lavozimlar %}
-            <option value="{{lavozim.id}}">{{lavozim}}</option>
+            <option value="{{ lavozim.id }}">{{ lavozim }}</option>
             {% endfor %}
         </select>
     </div>
