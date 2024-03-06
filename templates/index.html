@@ -18,7 +18,7 @@
         <select name="lavozim" class="form-control" id="exampleFormControlSelect1">
             <option disabled selected >Lavozimni tanlang</option>
             {% for lavozim in lavozimlar %}
-            <option value="{{ lavozim.id }}">{{ lavozim }}</option>
+                <option value="{{lavozim.id}}">{{lavozim}}</option>
             {% endfor %}
         </select>
     </div>
@@ -26,7 +26,7 @@
         <label for="exampleFormControlSelect2">Hodimlar</label>
         <select name="hodimlar" multiple class="form-control" id="exampleFormControlSelect2">
             {% for hodim in hodimlar %}
-            <option value="{{hodim.id}}" >{{hodim}}</option>
+                <option value="{{hodim.id}}" >{{hodim}}</option>
             {% endfor %}
         </select>
     </div>
@@ -39,7 +39,7 @@
         <select name="shablon" class="form-control" id="exampleFormControlSelect1">
             <option  selected value='' >Shablon habarini tanlang</option>
             {% for shablon in shablonlar %}
-            <option value="{{shablon.text}}">{{shablon.title}}</option>
+                <option value="{{shablon.text}}">{{shablon.title}}</option>
             {% endfor %}
         </select>
         <br/>
